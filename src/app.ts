@@ -10,6 +10,7 @@ import { ExpressError } from "../modules/expressInterfaces";
  * Routers Imports
  */
 import { indexRouter } from "../routers/indexRouter";
+import { apiRouter } from "../routers/apiRouter";
 
 /**
  * Express app creation
@@ -20,6 +21,7 @@ const app: Express = express();
  * Routers usage
  */
 app.use("/index", indexRouter);
+app.use("/api", apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req: Request, res: Response, next) {

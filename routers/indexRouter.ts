@@ -1,8 +1,19 @@
-import express, { Request, Response } from "express";
+import express from "express";
 const indexRouter = express.Router();
 
-indexRouter.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-});
+/**
+ * Controller importation
+ */
+import indexController from "../controllers/apiController";
+
+/**
+ * GETs URLs
+ */
+indexRouter.get("/", indexController.index);
+
+/**
+ * POSTs URLs
+ */
+// ...
 
 export { indexRouter };
