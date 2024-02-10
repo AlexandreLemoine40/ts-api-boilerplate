@@ -1,15 +1,39 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+import createError from "http-errors";
 
-dotenv.config();
+/**
+ * Custom types interfaces
+ */
+import { ExpressError } from "../modules/expressInterfaces";
 
+/**
+ * Routers Imports
+ */
+import { indexRouter } from "../routers/indexRouter";
+
+/**
+ * Express app creation
+ */
 const app: Express = express();
-const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
+/**
+ * Routers usage
+ */
+app.use("/index", indexRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req: Request, res: Response, next) {
+    next(createError(404));
 });
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+// error handler
+app.use(function (err: ExpressError, req: Request, res: Response) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get("env") === "development" ? err : {};
+
+    // render the error page
+    res.status(err.status || 500).send();
 });
+
+export { app };
