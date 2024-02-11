@@ -4,7 +4,7 @@ import createError from "http-errors";
 /**
  * Custom types interfaces
  */
-import { ExpressError } from "../modules/expressInterfaces";
+import { ExpressError } from "../interfaces/expressInterfaces";
 
 /**
  * Routers Imports
@@ -20,7 +20,7 @@ const app: Express = express();
 /**
  * Routers usage
  */
-app.use("/index", indexRouter);
+app.use("/", indexRouter);
 app.use("/api", apiRouter);
 
 // catch 404 and forward to error handler

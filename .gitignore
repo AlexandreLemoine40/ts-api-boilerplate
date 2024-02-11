@@ -4,3 +4,6 @@ node_modules/
 
 # npm files
 package-lock.json
+
+# Generic parasites files & foldes
+.DS_Store
