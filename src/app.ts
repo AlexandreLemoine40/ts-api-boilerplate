@@ -1,16 +1,17 @@
 import express, { Express, Request, Response } from "express";
+import bodyParser from "body-parser";
 import createError from "http-errors";
 
 /**
  * Custom types interfaces
  */
-import { ExpressError } from "../interfaces/expressInterfaces";
+import { ExpressError } from "../interfaces/express_interfaces";
 
 /**
  * Routers Imports
  */
-import { indexRouter } from "../routers/indexRouter";
-import { apiRouter } from "../routers/apiRouter";
+import { indexRouter } from "../routers/index_router";
+import { apiRouter } from "../routers/api_router";
 
 /**
  * Express app creation
@@ -18,17 +19,23 @@ import { apiRouter } from "../routers/apiRouter";
 const app: Express = express();
 
 /**
+ * Middlewares usage
+ */
+app.use(bodyParser.json());
+
+/**
  * Routers usage
  */
 app.use("/", indexRouter);
 app.use("/api", apiRouter);
 
-// catch 404 and forward to error handler
+/**
+ * Errors handling
+ */
 app.use(function (req: Request, res: Response, next) {
     next(createError(404));
 });
 
-// error handler
 app.use(function (err: ExpressError, req: Request, res: Response) {
     // set locals, only providing error in development
     res.locals.message = err.message;

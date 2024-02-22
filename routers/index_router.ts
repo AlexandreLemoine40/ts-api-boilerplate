@@ -4,7 +4,7 @@ const indexRouter = express.Router();
 /**
  * Controller importation
  */
-import indexController from "../controllers/indexController";
+import indexController from "../controllers/index_controller";
 
 /**
  * GETs URLs

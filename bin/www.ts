@@ -3,8 +3,9 @@ import { app } from "../src/app";
 
 dotenv.config();
 
-const port = process.env.PORT || 3000;
+const port = Number(process.env.PORT || 3000);
+const host = process.env.HOST || "127.0.0.1";
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
+app.listen(port, host, () => {
+    console.log(`[server]: Server is running at ${host}:${port}`);
 });
