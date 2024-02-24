@@ -13,6 +13,8 @@ import apiController from "../controllers/api_controller";
  */
 apiRouter.get("/", jwtMiddleware, apiController.index);
 
+apiRouter.get("/users", jwtMiddleware, apiController.getUsers);
+
 /**
  * POSTs URLs
  */
