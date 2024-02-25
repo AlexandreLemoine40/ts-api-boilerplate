@@ -5,13 +5,13 @@ import createError from "http-errors";
 /**
  * Custom types interfaces
  */
-import { ExpressError } from "../interfaces/express_interfaces";
+import { ExpressError } from "#/interfaces/express_interfaces.js";
 
 /**
  * Routers Imports
  */
-import { indexRouter } from "../routers/index_router";
-import { apiRouter } from "../routers/api_router";
+import { indexRouter } from "#/routers/index_router.js";
+import { apiRouter } from "#/routers/api_router.js";
 
 /**
  * Express app creation

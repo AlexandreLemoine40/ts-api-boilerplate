@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import JWTManager from "../models/jwt_manager.js";
-import vine from "@vinejs/vine";
+import JWTManager from "#/models/jwt_manager.js";
+import { errors } from "@vinejs/vine";
+import userValidator from "#/validators/user_validator.js";
 
 /**
  * Implements methods called when an Endpoint refering the API is accessed.
@@ -11,31 +12,24 @@ export default class apiController {
     }
 
     static async authenticate(req: Request, res: Response) {
-        const token = JWTManager.createToken(req.body, "3h");
-        const schema = vine.object({
-            username: vine.string(),
-            email: vine.string().email(),
-            password: vine
-                .string()
-                .minLength(8)
-                .maxLength(32)
-                .confirmed()
-        });
+        try {
+            const output = await userValidator.validate({
+                data: req.body
+            });
 
-        const data = {
-            username: "virk",
-            email: "virk@example.com",
-            password: "secret",
-            password_confirmation: "secret",
-        };
+            console.log(output);
 
-        const output = await vine.validate({
-            schema,
-            data
-        });
+            // Now check the credentials in the database
+            // ...
 
-        console.log(output);
+            const token = JWTManager.createToken(req.body, "3h");
 
-        res.send(token);
+            res.send(token);
+        } catch (error) {
+            if (error instanceof errors.E_VALIDATION_ERROR) {
+                console.log(error.messages);
+            }
+            res.status(500).send("Internal Server Error : Body payload missmatch required schema");
+        }
     }
 }
