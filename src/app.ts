@@ -5,7 +5,7 @@ import createError from "http-errors";
 /**
  * Custom types interfaces
  */
-import { ExpressError } from "#/interfaces/express_interfaces.js";
+import { ExpressError } from "#/interfaces/express/error.js";
 
 /**
  * Routers Imports
