@@ -10,7 +10,6 @@ import { ExpressError } from "#/interfaces/express/error.js";
 /**
  * Routers Imports
  */
-import { indexRouter } from "#/routers/index_router.js";
 import { apiRouter } from "#/routers/api_router.js";
 
 /**
@@ -26,7 +25,6 @@ app.use(bodyParser.json());
 /**
  * Routers usage
  */
-app.use("/", indexRouter);
 app.use("/api", apiRouter);
 
 /**
