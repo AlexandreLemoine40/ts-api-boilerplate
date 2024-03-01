@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import JWTManager from "#/models/jwt_manager.js";
+import JWTManager from "#models/jwt_manager.js";
 
 import dotenv from "dotenv";
 

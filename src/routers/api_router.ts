@@ -1,12 +1,12 @@
 import express from "express";
-import jwtMiddleware from "#/middlewares/jwt_middleware.js";
+import jwtMiddleware from "#middlewares/jwt_middleware.js";
 
 const apiRouter = express.Router();
 
 /**
  * Controller importation
  */
-import apiController from "#/controllers/api_controller.js";
+import apiController from "#controllers/api_controller.js";
 
 /**
  * GETs URLs

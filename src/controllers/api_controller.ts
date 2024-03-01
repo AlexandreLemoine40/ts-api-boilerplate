@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import JWTManager from "#/models/jwt_manager.js";
+import JWTManager from "#models/jwt_manager.js";
 import { errors } from "@vinejs/vine";
-import userValidator from "#/validators/user_validator.js";
+import userValidator from "#validators/user_validator.js";
 
 /**
  * Implements methods called when an Endpoint refering the API is accessed.
@@ -29,7 +29,7 @@ export default class apiController {
             if (error instanceof errors.E_VALIDATION_ERROR) {
                 console.log(error.messages);
             }
-            res.status(500).send("Internal Server Error : Body payload missmatch required schema");
+            res.status(500).send("Internal Server Error : Body payload missmatched required schema");
         }
     }
 }

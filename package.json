@@ -10,6 +10,15 @@
     "start": "node dist/bin/www.js",
     "dev": "nodemon bin/www.ts"
   },
+  "imports": {
+    "#app/*.js": "./dist/app/*.js",
+    "#controllers/*.js": "./dist/controllers/*.js",
+    "#interfaces/*.js": "./dist/interfaces/*.js",
+    "#middlewares/*.js": "./dist/middlewares/*.js",
+    "#models/*.js": "./dist/models/*.js",
+    "#routers/*.js": "./dist/routers/*.js",
+    "#validators/*.js": "./dist/validators/*.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
