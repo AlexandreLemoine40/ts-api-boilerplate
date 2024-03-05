@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import JWTManager from "#models/jwt_manager.js";
 import { errors } from "@vinejs/vine";
-import userValidator from "#validators/user_validator.js";
+import authValidator from "#validators/auth_validator.js";
 
 /**
  * Implements methods called when an Endpoint refering the API is accessed.
@@ -13,11 +13,8 @@ export default class apiController {
 
     static async authenticate(req: Request, res: Response) {
         try {
-            const output = await userValidator.validate({
-                data: req.body
-            });
-
-            console.log(output);
+            // Check the validity of the data received
+            await authValidator.validate(req.body);
 
             // Now check the credentials in the database
             // ...
