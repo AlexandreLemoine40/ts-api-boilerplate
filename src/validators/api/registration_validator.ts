@@ -1,5 +1,6 @@
 import vine from "@vinejs/vine";
 
+// Vine validation .confirmed() implies to have the same field with _confirmation suffix and have the same value.
 const schema = vine.object({
     username: vine.string(),
     password: vine.string()
@@ -7,8 +8,9 @@ const schema = vine.object({
         .maxLength(32)
         .confirmed(),
     email: vine.string()
+        .email()
 });
 
-const userValidator = vine.compile(schema);
+const registrationValidator = vine.compile(schema);
 
-export default userValidator;
+export default registrationValidator;

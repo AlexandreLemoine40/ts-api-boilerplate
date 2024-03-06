@@ -4,6 +4,6 @@ const schema = vine.object({
     username: vine.string()
 });
 
-const userValidator = vine.compile(schema);
+const authenticationValidator = vine.compile(schema);
 
-export default userValidator;
+export default authenticationValidator;
