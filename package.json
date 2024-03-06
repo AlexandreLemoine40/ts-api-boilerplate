@@ -13,7 +13,7 @@
   "imports": {
     "#app/*.js": "./dist/app/*.js",
     "#controllers/*.js": "./dist/controllers/*.js",
-    "#interfaces/*.js": "./dist/interfaces/*.js",
+    "#types/*.js": "./dist/types/*.js",
     "#middlewares/*.js": "./dist/middlewares/*.js",
     "#models/*.js": "./dist/models/*.js",
     "#routers/*.js": "./dist/routers/*.js",
