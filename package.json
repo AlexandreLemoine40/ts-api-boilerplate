@@ -7,8 +7,7 @@
   "scripts": {
     "test": "jest --watch --verbose",
     "build": "npx tsc",
-    "start": "node dist/bin/www.js",
-    "dev": "nodemon src/bin/www.ts"
+    "start": "node dist/bin/www.js"
   },
   "imports": {
     "#app/*.js": "./dist/app/*.js",
