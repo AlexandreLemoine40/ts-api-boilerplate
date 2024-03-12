@@ -1,7 +1,4 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 class JWTManager {
     private static secretKey: string = process.env.JWT_SECRET as string;

@@ -1,10 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import JWTManager from "#models/jwt_manager.js";
 
-import dotenv from "dotenv";
-
-dotenv.config();
-
 const jwtMiddleware = (req: Request, res: Response, next: NextFunction) => {
     // Get the JWT token from the request headers
     const token = req.headers.authorization?.split(" ")[1];
